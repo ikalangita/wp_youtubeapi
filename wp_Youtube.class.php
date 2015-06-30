@@ -8,11 +8,11 @@
 			$this->key = "{API_KEY_HERE}";
 		}
 
-		private function fetch_by_tag( $motcle ){
+		private function fetch_by_tag( $keyword ){
 
-			$motcle = urldecode( $motcle );
+			$keyword = urldecode( $keyword );
 
-			$url 	= "https://www.googleapis.com/youtube/v3/search?part=snippet&q=".$motcle."&maxResults=21&safesearch=strict&key=".$this->key;
+			$url 	= "https://www.googleapis.com/youtube/v3/search?part=snippet&q=".$keyword."&maxResults=21&safesearch=strict&key=".$this->key;
 
 			$data   = wp_remote_get( $url );
 
@@ -64,14 +64,14 @@
 			}
 			return $response;
 		}
-
-		public function fetch_youtube( $mode, $motcle = null , $playlistId = null ){
+keyword
+		public function fetch_youtube( $mode, $keyword = null , $playlistId = null ){
 
 			if( $mode == "playlist"){
 				$display = $this->fetch_by_playlist( $playlistId );
 				
 			}else{
-				$display = $this->fetch_by_tag( $motcle );
+				$display = $this->fetch_by_tag( $keyword );
 			}
 			
 			$display = json_decode($display);
