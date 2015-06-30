@@ -94,3 +94,19 @@ keyword
 			return $output;
 		}
 	}
+
+	/*-----------------------------------
+	HOW TO USE
+	-------------------------------------*/
+	# Initialize the class
+	$youtube  = new youtube_Videos( );
+
+	# Fetch playlist
+	$playlistId = "{ YOUR_PLAYLIST_ID_HERE }";
+	$playlist 	= $youtube->fetch_youtube( "playlist" , "", $playlistId );
+
+	# Fetch videos
+	# use comma instead of space for keyword (eg: don,joe instead of don joe)
+	# pipe separates two keywords (eg : travel|computer )
+	$keyword 	= "{ YOUR_KEYWORD_HERE }";
+	$videos $youtube->fetch_youtube( "videos" , $keyword, $playlistId );
