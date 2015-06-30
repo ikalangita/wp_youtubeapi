@@ -5,7 +5,7 @@
 		private $key;
 
 		public function __construct( $key ){
-			$this->key = "AIzaSyB4u8iQI8g2e0HE9IqpiQTHR9E526IdmIQ";
+			$this->key = "{API_KEY_HERE}";
 		}
 
 		private function fetch_by_tag( $motcle ){
